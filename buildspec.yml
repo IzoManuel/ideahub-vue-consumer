@@ -16,7 +16,7 @@ phases:
   post_build:
     commands:
       - echo Syncing built files to S3...
-      - aws s3 sync dist/ s3://cloudformation-templates-shared --delete
+      - aws s3 sync dist/ s3://cloudformation-templates-shared/ideahub-vue-consumer/ --delete
 
 artifacts:
   files:
