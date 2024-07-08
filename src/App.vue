@@ -11,7 +11,7 @@ const { ideasList, filteredIdeas } = storeToRefs(generalsStore)
 
 const fetchAndSetIdeas = async () => {
   try {
-    const res = await fetch('http://172.31.6.244:8000/api/ideas/')
+    const res = await fetch('http://13.233.7.63:8000/api/ideas/')
 
     const ideas = await res.json()
 
