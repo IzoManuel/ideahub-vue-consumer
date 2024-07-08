@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing NPM dependencies...
+      - npm install
+
+  build:
+    commands:
+      - echo Building the Vue.js app...
+      - npm run build
+
+  post_build:
+    commands:
+      - echo Syncing built files to S3...
+      - aws s3 sync dist/ s3://cloudformation-templates-shared --delete
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
